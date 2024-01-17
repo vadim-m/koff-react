@@ -1,0 +1,138 @@
+:root {
+  --white: #ffffff;
+  --snow: #eeeff2;
+  --gray: #969eae;
+  --black: #1c1c1c;
+  --violet: #780096;
+}
+
+/* inter-regular - cyrillic_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v13-cyrillic_latin-regular.woff2') format('woff2');
+}
+
+/* open-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/open-sans-v40-latin-regular.woff2') format('woff2');
+}
+
+/* open-sans-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/open-sans-v40-latin-700.woff2') format('woff2');
+}
+
+/* box-sizing */
+html {
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+/* они уже наследуют свойство box-sizing у html (для сторонних компонентов важно!) */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* плавная прокрутка по странице, работает не везде! */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* шаблон для body */
+body {
+  min-height: 100vh;
+  min-width: 320px;
+  font-family: 'Open Sans', sans-serif;
+  /* mobile-first */
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--black);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ссылки убираются почти всегда */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* сброс стилей кнопок */
+button {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+}
+
+/* Убираем внешние отступы */
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* html5 семантические теги  */
+nav,
+menu,
+header,
+footer,
+aside,
+article,
+section,
+aside,
+figure,
+figcaption {
+  display: block;
+}
+
+/* теги форм наследуют шрифты сайта*/
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+/* стили маркированных списков */
+ul li {
+  list-style: none;
+}
+
+/* адаптив дял картинок, чтобы не вылезали за родителя  */
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* лайфхак для сокрытия элементов */
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
