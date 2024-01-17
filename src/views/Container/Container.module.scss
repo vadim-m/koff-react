@@ -1,0 +1,19 @@
+@import '../../assets/styles/mixins.scss';
+
+.container {
+  max-width: 1440px;
+  padding: rem(16);
+  margin: 0 auto;
+
+  @include tablets {
+    padding: 0 rem(30);
+  }
+
+  @include medium {
+    padding: 0 rem(44);
+  }
+
+  @include large {
+    padding: 0 rem(92);
+  }
+}
