@@ -1,0 +1,12 @@
+*.scss
+*.css
+/dist
+/.next
+/.husky
+/.git
+/.vscode
+/node_modules
+/build
+/src/__mock__
+/src/__test__
+package.json
