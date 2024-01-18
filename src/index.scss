@@ -58,7 +58,7 @@ body {
   min-width: 320px;
   font-family: 'Open Sans', sans-serif;
   /* mobile-first */
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1.2;
   color: var(--black);
   font-synthesis: none;
@@ -124,8 +124,7 @@ ul li {
 
 /* адаптив дял картинок, чтобы не вылезали за родителя  */
 img,
-picture,
-svg {
+picture {
   display: block;
   max-width: 100%;
   height: auto;
