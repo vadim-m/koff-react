@@ -1,0 +1,36 @@
+@import '../../assets/styles/mixins.scss';
+
+.goods {
+  margin: rem(24) 0 rem(80);
+
+  @include tablets {
+    margin: rem(32) 0 rem(80);
+  }
+
+  @include medium {
+    margin: rem(40) 0 rem(80);
+  }
+}
+
+.list {
+  display: grid;
+  flex-direction: column;
+  gap: rem(40) rem(8);
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  margin: 0;
+
+  @include tablets {
+    gap: rem(65) rem(10);
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include medium {
+    gap: rem(80) rem(16);
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include large {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../assets/styles/mixins.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}

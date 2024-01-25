@@ -1,5 +1,41 @@
 @import '../../assets/styles/mixins.scss';
 
-.header {
-  background-color: red;
+.nav {
+  display: flex;
+  gap: rem(16);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  outline-offset: 5px;
+  outline: 1px solid transparent;
+
+  &:hover,
+  &:active {
+    color: var(--violet);
+  }
+
+  &:focus-visible {
+    color: var(--violet);
+    outline-color: var(--violet);
+  }
+}
+
+.text {
+  display: none;
+  font-size: rem(12);
+  font-style: normal;
+
+  @include tablets {
+    display: block;
+  }
+}
+
+.number {
+  font-size: rem(12);
+  font-style: normal;
+  order: 1;
 }

@@ -1,5 +1,9 @@
-// import style from './Logo.module.scss';
+import style from './Logo.module.scss';
 
 export const Logo = () => {
-  return <div>Logo</div>;
+  return (
+    <a href="/">
+      <img className={style.logo} src="/img/logo.svg" alt="Лого Koff маркет" />
+    </a>
+  );
 };

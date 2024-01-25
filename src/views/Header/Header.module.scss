@@ -1,10 +1,15 @@
 @import '../../assets/styles/mixins.scss';
 
+.header {
+  padding: rem(16) 0;
+  border-bottom: 1px solid var(--snow);
+}
+
 .container {
   display: grid;
   gap: rem(16);
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   grid-template-areas:
     'logo navigation'
     'search search';
@@ -15,14 +20,26 @@
   }
 
   .logo {
+    height: rem(25);
     grid-area: logo;
   }
 
   .search {
+    width: 100%;
     grid-area: search;
+    justify-self: center;
+
+    @include medium {
+      max-width: 410px;
+    }
+
+    @include large {
+      max-width: 514px;
+    }
   }
 
   .navigation {
     grid-area: navigation;
+    justify-self: end;
   }
 }

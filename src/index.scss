@@ -4,6 +4,7 @@
   --gray: #969eae;
   --black: #1c1c1c;
   --violet: #780096;
+  --violet_active: #9200b7;
 }
 
 /* inter-regular - cyrillic_latin */
@@ -58,13 +59,24 @@ body {
   min-width: 320px;
   font-family: 'Open Sans', sans-serif;
   /* mobile-first */
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1.2;
   color: var(--black);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
 }
 
 /* ссылки убираются почти всегда */
@@ -124,8 +136,7 @@ ul li {
 
 /* адаптив дял картинок, чтобы не вылезали за родителя  */
 img,
-picture,
-svg {
+picture {
   display: block;
   max-width: 100%;
   height: auto;
