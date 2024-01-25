@@ -1,5 +1,73 @@
 @import '../../assets/styles/mixins.scss';
 
 .footer {
-  background-color: rgb(182, 182, 212);
+  color: var(--white);
+  font-family: 'Open Sans';
+  font-size: rem(12);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  background-color: var(--black);
+
+  padding: rem(32) 0 rem(40);
+
+  @include medium {
+    padding-top: rem(40);
+  }
+
+  a {
+    outline-offset: 5px;
+    outline: 1px solid transparent;
+    border-radius: 4px;
+
+    &:hover,
+    &:active {
+      color: var(--violet);
+    }
+
+    &:focus-visible {
+      color: var(--violet);
+      outline-color: var(--violet);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+
+  @include tablets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include medium {
+    gap: rem(32);
+  }
+}
+
+.logo {
+  width: rem(230);
+
+  @include tablets {
+    grid-column: 1 / 2;
+  }
+
+  @include medium {
+    gap: rem(330);
+  }
+}
+
+.contacts {
+  @include tablets {
+    grid-column: 2 / 3;
+    justify-self: end;
+  }
+}
+
+.authors {
+  @include tablets {
+    grid-column: 1 / 3;
+  }
 }

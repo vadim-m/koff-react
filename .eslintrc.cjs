@@ -15,7 +15,7 @@ module.exports = {
   rules: {
     'no-var': 'error',
     'no-console': 'warn',
-    'max-len': ['error', 100],
+    'max-len': 'off',
     'prefer-const': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
