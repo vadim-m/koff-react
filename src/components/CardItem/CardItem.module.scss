@@ -1,0 +1,111 @@
+@import '../../assets/styles/mixins.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20) 0;
+}
+
+.wrapper {
+  position: relative;
+  border-radius: rem(32);
+  overflow: hidden;
+  padding-bottom: 85%;
+
+  @include tablets {
+    padding-bottom: 87%;
+  }
+
+  @include medium {
+    padding-bottom: 83%;
+  }
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.like {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  outline: none;
+
+  &:focus .icon {
+    stroke: var(--violet);
+    fill: var(--violet);
+    outline-color: var(--violet);
+  }
+}
+
+.icon {
+  height: rem(16);
+  width: rem(16);
+  cursor: pointer;
+  color: var(--violet);
+  transition:
+    fill 0.5s ease,
+    stroke 0.25s ease;
+  stroke: var(--black);
+  fill: transparent;
+
+  &:hover,
+  &:active {
+    stroke: currentColor;
+    fill: currentColor;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  color: var(--black);
+
+  @include tablets {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 rem(8);
+  }
+}
+
+.link {
+  font-size: rem(12);
+  transition: color 0.25s ease;
+  margin-bottom: rem(8);
+  outline-offset: 4px;
+  border-radius: 4px;
+  outline: 1px solid transparent;
+
+  &:hover,
+  &:active {
+    color: var(--violet);
+  }
+
+  &:focus-visible {
+    color: var(--violet);
+    outline-color: var(--violet);
+  }
+
+  @include tablets {
+    font-size: rem(16);
+    margin-bottom: 0;
+  }
+}
+
+.price {
+  white-space: nowrap;
+  font-size: rem(16);
+
+  @include tablets {
+    font-size: rem(20);
+  }
+}

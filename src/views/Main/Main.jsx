@@ -1,9 +1,9 @@
-import { Container } from '../Container/Container';
+import { Goods } from '../../components/Goods/Goods';
 
 export const Main = () => {
   return (
     <main className="main">
-      <Container>Main</Container>
+      <Goods />
     </main>
   );
 };
