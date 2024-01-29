@@ -1,7 +1,9 @@
 @import '../../assets/styles/mixins.scss';
 
 .card {
+  height: 100%;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: rem(20) 0;
 }
