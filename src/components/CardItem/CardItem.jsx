@@ -1,11 +1,12 @@
+import { API_URL } from '../../constants/constants';
 import { Button } from '../Button/Button';
 import style from './CardItem.module.scss';
 
-export const CardItem = () => {
+export const CardItem = ({ price, name, id, images: [image] }) => {
   return (
     <article className={style.card}>
       <div className={style.wrapper}>
-        <img className={style.img} src="/img/product.webp" alt="product photo"></img>
+        <img className={style.img} src={`${API_URL}/${image}`} alt={name}></img>
         <button className={style.like}>
           <svg
             className={style.icon}
@@ -26,10 +27,10 @@ export const CardItem = () => {
         </button>
       </div>
       <div className={style.info}>
-        <a className={style.link} href="#">
-          Кресло с подлокотниками
+        <a className={style.link} href={`/product/${id}`} target="_blank" rel="noreferrer">
+          {name}
         </a>
-        <span className={style.price}>5 000 ₽</span>
+        <span className={style.price}>{price.toLocaleString()} ₽</span>
       </div>
       <Button text="В корзину" />
     </article>
