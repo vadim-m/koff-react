@@ -1,8 +1,8 @@
 import { Container } from '../Container/Container';
-import { Logo } from '../../components/Logo/Logo';
+import { Logo } from '../Logo/Logo';
 import style from './Footer.module.scss';
-import { Authors } from '../../components/Authors/Authors';
-import { Contacts } from '../../components/Contacts/Contacts';
+import { Authors } from '../Authors/Authors';
+import { Contacts } from '../Contacts/Contacts';
 
 export const Footer = () => {
   return (

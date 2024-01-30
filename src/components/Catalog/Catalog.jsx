@@ -1,4 +1,4 @@
-import { Container } from '../../views/Container/Container';
+import { Container } from '../Container/Container';
 import style from './Catalog.module.scss';
 
 export const Catalog = ({ data, loading, error }) => {

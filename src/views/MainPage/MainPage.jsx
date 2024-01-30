@@ -5,7 +5,7 @@ import { fetchCategories } from '../../store/categories/categories.slice';
 import { Catalog } from '../../components/Catalog/Catalog';
 import { fetchProducts } from '../../store/products/products.slice';
 
-export const Main = () => {
+export const MainPage = () => {
   const dispatch = useDispatch();
   const {
     data: dataCategories,
