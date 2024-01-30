@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { API_URL } from '../../constants/constants';
 import { Button } from '../Button/Button';
 import style from './CardItem.module.scss';
@@ -6,7 +7,9 @@ export const CardItem = ({ price, name, id, images: [image] }) => {
   return (
     <article className={style.card}>
       <div className={style.wrapper}>
-        <img className={style.img} src={`${API_URL}/${image}`} alt={name}></img>
+        <Link className={style.link} to={`/product/${id}`}>
+          <img className={style.img} src={`${API_URL}/${image}`} alt={name} />
+        </Link>
         <button className={style.like}>
           <svg
             className={style.icon}
@@ -27,9 +30,9 @@ export const CardItem = ({ price, name, id, images: [image] }) => {
         </button>
       </div>
       <div className={style.info}>
-        <a className={style.link} href={`/product/${id}`} target="_blank" rel="noreferrer">
+        <Link className={style.link} to={`/product/${id}`}>
           {name}
-        </a>
+        </Link>
         <span className={style.price}>{price.toLocaleString()} ₽</span>
       </div>
       <Button text="В корзину" />
