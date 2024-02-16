@@ -1,0 +1,29 @@
+@import '../../assets/styles/mixins.scss';
+
+.btn {
+  outline: none;
+
+  &:focus .icon {
+    stroke: var(--violet);
+    fill: var(--violet);
+    outline-color: var(--violet);
+  }
+}
+
+.icon {
+  height: rem(16);
+  width: rem(16);
+  cursor: pointer;
+  color: var(--violet);
+  transition:
+    fill 0.5s ease,
+    stroke 0.25s ease;
+  stroke: var(--black);
+  fill: transparent;
+
+  &:hover,
+  &:active {
+    stroke: currentColor;
+    fill: currentColor;
+  }
+}
