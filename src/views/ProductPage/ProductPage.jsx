@@ -1,21 +1,47 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Catalog } from '../../components/Catalog/Catalog';
 import { ProductItem } from '../../components/ProductItem/ProductItem';
-import { useEffect } from 'react';
+import { Spinner } from '../../components/Spinner/Spinner';
 import { fetchCategories } from '../../store/categories/categories.slice';
+import { fetchProduct } from '../../store/product/product.slice';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
-  const { data, loading, errors } = useSelector((state) => state.categories);
+  const { productId } = useParams();
+  const {
+    data: dataProduct,
+    loading: loadingProduct,
+    errors: errorsProduct,
+  } = useSelector((state) => state.product);
+  const {
+    data: dataCategories,
+    loading: loadingCategories,
+    errors: errorsCategories,
+  } = useSelector((state) => state.categories);
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, [dispatch]);
+    dispatch(fetchProduct(productId));
+  }, [dispatch, productId]);
+
+  if (loadingCategories || loadingProduct) {
+    return (
+      <main className="main">
+        <Spinner text={'Загрузка'} />
+      </main>
+    );
+  }
 
   return (
     <main className="main">
-      <Catalog data={data} loading={loading} error={errors} />
-      <ProductItem />
+      <Catalog data={dataCategories} error={errorsCategories} />
+      {dataProduct ? (
+        <ProductItem data={dataProduct} error={errorsProduct} />
+      ) : (
+        <ProductItem data={{}} error={errorsProduct} />
+      )}
     </main>
   );
 };
