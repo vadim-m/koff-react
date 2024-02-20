@@ -63,29 +63,6 @@
   margin-bottom: rem(14);
 }
 
-.table {
-  width: 100%;
-  font-size: rem(12);
-  border-collapse: collapse;
-  margin-bottom: rem(24);
-}
-
-.row {
-  border-bottom: 1px solid var(--snow);
-}
-
-.key {
-  text-align: left;
-  padding: rem(8) 0;
-  color: var(--gray);
-}
-
-.value {
-  padding: rem(8) 0;
-  text-align: right;
-  color: var(--black);
-}
-
 .btns {
   display: flex;
   align-items: center;
