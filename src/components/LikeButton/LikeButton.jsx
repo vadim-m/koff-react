@@ -1,8 +1,8 @@
 import style from './LikeButton.module.scss';
 
-export const LikeButton = () => {
+export const LikeButton = ({ id }) => {
   return (
-    <button className={style.btn}>
+    <button className={style.btn} onClick={() => alert(id)}>
       <svg
         className={style.icon}
         width="16"

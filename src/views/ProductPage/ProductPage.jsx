@@ -37,11 +37,7 @@ export const ProductPage = () => {
   return (
     <main className="main">
       <Catalog data={dataCategories} error={errorsCategories} />
-      {dataProduct ? (
-        <ProductItem data={dataProduct} error={errorsProduct} />
-      ) : (
-        <ProductItem data={{}} error={errorsProduct} />
-      )}
+      <ProductItem data={dataProduct} error={errorsProduct} />
     </main>
   );
 };

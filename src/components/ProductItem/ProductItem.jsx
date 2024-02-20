@@ -6,14 +6,14 @@ import style from './ProductItem.module.scss';
 import { Table } from '../Table/Table';
 
 export const ProductItem = ({ data, error }) => {
-  if (error) {
+  if (error || !data) {
     return (
       <Container>
         <div>Ошибка при загрузке информации о товаре: {error}</div>
       </Container>
     );
   }
-  console.log(data);
+
   const { id, name, price, article, characteristics, images } = data;
 
   return (
