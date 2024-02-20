@@ -1,6 +1,7 @@
 @import '../../assets/styles/mixins.scss';
 
 .btn {
+  width: 100%;
   text-align: center;
   color: var(--violet);
   font-family: 'Open Sans';
@@ -43,6 +44,7 @@
   }
 
   &:focus-visible:enabled {
+    background-color: var(--white);
     color: var(--violet_active);
     border-color: transparent;
     outline-color: var(--violet_active);

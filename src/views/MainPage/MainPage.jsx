@@ -4,8 +4,9 @@ import { Goods } from '../../components/Goods/Goods';
 import { fetchCategories } from '../../store/categories/categories.slice';
 import { Catalog } from '../../components/Catalog/Catalog';
 import { fetchProducts } from '../../store/products/products.slice';
+import { Spinner } from '../../components/Spinner/Spinner';
 
-export const Main = () => {
+export const MainPage = () => {
   const dispatch = useDispatch();
   const {
     data: dataCategories,
@@ -24,10 +25,18 @@ export const Main = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  if (loadingCategories || loadingProducts) {
+    return (
+      <main className="main">
+        <Spinner text={'Загрузка'} />
+      </main>
+    );
+  }
+
   return (
     <main className="main">
-      <Catalog data={dataCategories} loading={loadingCategories} error={errorsCategories} />
-      <Goods data={dataProducts} loading={loadingProducts} error={errorsProducts} />
+      <Catalog data={dataCategories} error={errorsCategories} />
+      <Goods data={dataProducts} error={errorsProducts} />
     </main>
   );
 };

@@ -1,9 +1,65 @@
-import { Footer } from './views/Footer/Footer';
-import { Header } from './views/Header/Header';
-import { Main } from './views/Main/Main';
+import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header/Header';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAccessToken } from './store/auth/auth.slice';
+import { MainPage } from './views/MainPage/MainPage';
+import { CartPage } from './views/CartPage/CartPage';
+import { ProductPage } from './views/ProductPage/ProductPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <>
+        <Header />
+        <MainPage />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: '/favorites',
+    element: (
+      <>
+        <Header />
+        <MainPage />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: '/categories',
+    element: (
+      <>
+        <Header />
+        <MainPage />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: '/cart',
+    element: (
+      <>
+        <Header />
+        <CartPage />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: '/product/:productId',
+    element: (
+      <>
+        <Header />
+        <ProductPage />
+        <Footer />
+      </>
+    ),
+  },
+]);
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -15,12 +71,15 @@ export const App = () => {
     }
   }, [dispatch, accessToken]);
 
+  if (loading) {
+    return <div>Идёт загрузка</div>;
+  }
+
   return (
-    <>
+    <RouterProvider router={router}>
       <Header />
-      {!loading && accessToken ? <Main /> : <div>Loading...</div>}
-      {/* <Main /> */}
+      <MainPage />
       <Footer />
-    </>
+    </RouterProvider>
   );
 };

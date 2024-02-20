@@ -1,19 +1,12 @@
-import { Container } from '../../views/Container/Container';
+import { Link } from 'react-router-dom';
+import { Container } from '../Container/Container';
 import style from './Catalog.module.scss';
 
-export const Catalog = ({ data, loading, error }) => {
+export const Catalog = ({ data, error }) => {
   if (error) {
     return (
       <Container>
         <div>Ошибка при загрузке категорий товаров: {error}</div>
-      </Container>
-    );
-  }
-
-  if (loading) {
-    return (
-      <Container>
-        <div>Идёт загрузка категорий...</div>
       </Container>
     );
   }
@@ -23,9 +16,9 @@ export const Catalog = ({ data, loading, error }) => {
       <ul className={style.list}>
         {data.map((item, i) => (
           <li key={i}>
-            <a className={style.link} href={`/category?slug=${item}`}>
+            <Link className={style.link} to={`/categories?slug=${item}`}>
               {item}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
