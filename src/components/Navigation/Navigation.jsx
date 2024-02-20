@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import style from './Navigation.module.scss';
 
 export const Navigation = () => {
   return (
     <nav className={style.nav}>
-      <a className={style.link} href="/favorites">
+      <Link className={style.link} to="/favorites">
         <span className={style.text}>Избранное</span>
         <svg
           width="16"
@@ -24,8 +25,8 @@ export const Navigation = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </a>
-      <a className={style.link} href="/cart">
+      </Link>
+      <Link className={style.link} to="/cart">
         <span className={style.text}>Корзина</span>
         <span className={style.number}> &nbsp;(5)&nbsp;</span>
         <svg
@@ -65,7 +66,7 @@ export const Navigation = () => {
             strokeLinecap="round"
           />
         </svg>
-      </a>
+      </Link>
     </nav>
   );
 };

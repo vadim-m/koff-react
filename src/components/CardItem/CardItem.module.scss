@@ -36,13 +36,6 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  outline: none;
-
-  &:focus .icon {
-    stroke: var(--violet);
-    fill: var(--violet);
-    outline-color: var(--violet);
-  }
 }
 
 .icon {
