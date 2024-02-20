@@ -7,6 +7,7 @@ import { fetchAccessToken } from './store/auth/auth.slice';
 import { MainPage } from './views/MainPage/MainPage';
 import { CartPage } from './views/CartPage/CartPage';
 import { ProductPage } from './views/ProductPage/ProductPage';
+import { NotFoundPage } from './views/NotFoundPage/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,17 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  {
+    path: '*',
+    element: (
+      <>
+        <Header />
+        <NotFoundPage />
+        <Footer />
+      </>
+    ),
+  },
+
   {
     path: '/favorites',
     element: (
