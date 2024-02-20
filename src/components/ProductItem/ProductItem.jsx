@@ -2,8 +2,8 @@ import { Container } from '../Container/Container';
 import { ProductSlider } from '../ProductSlider/ProductSlider';
 import { Button } from '../Button/Button';
 import { LikeButton } from '../LikeButton/LikeButton';
-import style from './ProductItem.module.scss';
 import { Table } from '../Table/Table';
+import style from './ProductItem.module.scss';
 
 export const ProductItem = ({ data, error }) => {
   if (error || !data) {
@@ -20,7 +20,7 @@ export const ProductItem = ({ data, error }) => {
     <Container className={style.container}>
       <section className={style.card}>
         <h2 className={style.title}>{name}</h2>
-        <ProductSlider images={images} />
+        <ProductSlider images={images} name={name} />
         <div className={style.info}>
           <p className={style.price}>{(+price).toLocaleString('ru-RU')} ₽</p>
           <p className={style.article}>арт. {article}</p>

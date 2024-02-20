@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbs } from 'swiper/modules';
 import { useState } from 'react';
+import { API_URL } from '../../constants/constants';
 import style from './ProductSlider.module.scss';
 import 'swiper/css';
 
-export const ProductSlider = () => {
+export const ProductSlider = ({ images, name }) => {
   const [mainSwiper, setMainSwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -18,31 +19,13 @@ export const ProductSlider = () => {
           spaceBetween={20}
           slidesPerView={'auto'}
         >
-          <SwiperSlide>
-            <div className={style.wrapper}>
-              <img src="/img/product.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={style.wrapper}>
-              <img src="/img/product.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={style.wrapper}>
-              <img src="/img/1.jpg" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={style.wrapper}>
-              <img src="/img/i.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={style.wrapper}>
-              <img src="/img/i.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
+          {images.map((src) => (
+            <SwiperSlide key={`sw1-${src.slice(6, -4)}`}>
+              <div className={style.wrapper}>
+                <img className={style.img} src={`${API_URL}/${src}`} alt={name} />
+              </div>
+            </SwiperSlide>
+          ))}
           <button
             className={`${style.arrow} ${style.arrow_prev}`}
             onClick={() => mainSwiper.slidePrev()}
@@ -65,31 +48,13 @@ export const ProductSlider = () => {
           slidesPerView={4}
           watchSlidesProgress
         >
-          <SwiperSlide>
-            <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
-              <img src="/img/product.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
-              <img src="/img/product.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
-              <img src="/img/1.jpg" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
-              <img src="/img/i.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
-              <img src="/img/i.webp" alt="photo" className={style.img} />
-            </div>
-          </SwiperSlide>
+          {images.map((src) => (
+            <SwiperSlide key={`sw2-${src.slice(6, -4)}`}>
+              <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
+                <img className={style.img} src={`${API_URL}/${src}`} alt={name} />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
