@@ -14,7 +14,21 @@ export const fetchCategories = createAsyncThunk(
     });
 
     if (!response.ok) {
-      throw new Error('Не удалось загрузить категории товаров');
+      if (response.status === 401) {
+        return thunkAPI.rejectWithValue({
+          status: response.status,
+          error: {
+            message: `Не удалось загрузить категории товаров. Статус: ${response.status}`,
+          },
+        });
+      }
+
+      return thunkAPI.rejectWithValue({
+        status: response.status,
+        error: {
+          message: `Не удалось загрузить категории товаров. Статус: ${response.status}`,
+        },
+      });
     }
 
     const data = await response.json();
@@ -45,7 +59,7 @@ const categoriesSlice = createSlice({
       })
       .addCase(fetchCategories.rejected, (state, action) => {
         state.loading = false;
-        state.errors = action.error.message;
+        state.errors = action.payload?.error?.message;
       });
   },
 });
