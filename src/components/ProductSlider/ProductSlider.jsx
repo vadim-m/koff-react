@@ -19,13 +19,14 @@ export const ProductSlider = ({ images, name }) => {
           spaceBetween={20}
           slidesPerView={'auto'}
         >
-          {images.map((src) => (
-            <SwiperSlide key={`sw1-${src.slice(6, -4)}`}>
-              <div className={style.wrapper}>
-                <img className={style.img} src={`${API_URL}/${src}`} alt={name} />
-              </div>
-            </SwiperSlide>
-          ))}
+          {images?.length &&
+            images.map((src) => (
+              <SwiperSlide key={`sw1-${src.slice(6, -4)}`}>
+                <div className={style.wrapper}>
+                  <img className={style.img} src={`${API_URL}/${src}`} alt={name} />
+                </div>
+              </SwiperSlide>
+            ))}
           <button
             className={`${style.arrow} ${style.arrow_prev}`}
             onClick={() => mainSwiper.slidePrev()}
@@ -48,13 +49,14 @@ export const ProductSlider = ({ images, name }) => {
           slidesPerView={4}
           watchSlidesProgress
         >
-          {images.map((src) => (
-            <SwiperSlide key={`sw2-${src.slice(6, -4)}`}>
-              <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
-                <img className={style.img} src={`${API_URL}/${src}`} alt={name} />
-              </div>
-            </SwiperSlide>
-          ))}
+          {images?.length &&
+            images.map((src) => (
+              <SwiperSlide key={`sw2-${src.slice(6, -4)}`}>
+                <div className={`${style.wrapper} ${style.wrapper_thumbs}`}>
+                  <img className={style.img} src={`${API_URL}/${src}`} alt={name} />
+                </div>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </div>

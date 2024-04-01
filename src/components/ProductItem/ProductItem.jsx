@@ -14,7 +14,7 @@ export const ProductItem = ({ data, error }) => {
     );
   }
 
-  const { id, name, price, article, characteristics, images } = data;
+  const { id, name, price, article, characteristics, images = [] } = data;
 
   return (
     <Container className={style.container}>
