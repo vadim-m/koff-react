@@ -3,7 +3,8 @@ import authReducer from './auth/auth.slice.js';
 import categoriesReducer from './categories/categories.slice.js';
 import productsReducer from './products/products.slice.js';
 import productReducer from './product/product.slice.js';
-import { apiTokenErrorMiddleware } from './middleware.js';
+import apiErrorReducer from './apiError/apiError.slice.js';
+import { apiTokenErrorMiddleware, apiReqErrorsMiddleware } from './middleware.js';
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,9 @@ export const store = configureStore({
     categories: categoriesReducer,
     products: productsReducer,
     product: productReducer,
+    apiError: apiErrorReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiTokenErrorMiddleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiTokenErrorMiddleware, apiReqErrorsMiddleware),
   devTools: window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__,
 });

@@ -8,6 +8,7 @@ import { MainPage } from './views/MainPage/MainPage';
 import { CartPage } from './views/CartPage/CartPage';
 import { ProductPage } from './views/ProductPage/ProductPage';
 import { NotFoundPage } from './views/NotFoundPage/NotFoundPage';
+import { ErrorPortal } from './components/ErrorPortal/ErrorPortal';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <MainPage />
+        <ErrorPortal />
         <Footer />
       </>
     ),
@@ -37,6 +39,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <MainPage />
+        <ErrorPortal />
         <Footer />
       </>
     ),
@@ -47,6 +50,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <MainPage />
+        <ErrorPortal />
         <Footer />
       </>
     ),
@@ -57,6 +61,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <CartPage />
+        <ErrorPortal />
         <Footer />
       </>
     ),
@@ -67,6 +72,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <ProductPage />
+        <ErrorPortal />
         <Footer />
       </>
     ),
@@ -87,11 +93,5 @@ export const App = () => {
     return <div>Идёт загрузка</div>;
   }
 
-  return (
-    <RouterProvider router={router}>
-      <Header />
-      <MainPage />
-      <Footer />
-    </RouterProvider>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 };
