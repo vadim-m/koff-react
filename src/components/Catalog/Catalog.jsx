@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Container } from '../Container/Container';
 import style from './Catalog.module.scss';
 
-export const Catalog = ({ data, error }) => {
+export const Catalog = ({ data = [], error }) => {
   if (error) {
     return (
       <Container>

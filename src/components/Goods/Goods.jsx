@@ -2,7 +2,7 @@ import style from './Goods.module.scss';
 import { Container } from '../Container/Container';
 import { CardItem } from '../CardItem/CardItem';
 
-export const Goods = ({ data, error }) => {
+export const Goods = ({ data = [], error }) => {
   if (error) {
     return (
       <Container>
