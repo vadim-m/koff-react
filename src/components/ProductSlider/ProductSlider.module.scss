@@ -68,14 +68,19 @@
   outline: 2px solid transparent;
   transition: all 0.25s ease;
 
-  &:hover,
-  &:active {
+  &:enabled:hover,
+  &:enabled:active {
     background-color: rgba($color: #fff, $alpha: 0.8);
   }
 
-  &:focus-visible {
+  &:enabled:focus-visible {
     outline-color: var(--violet);
     background-color: rgba($color: #fff, $alpha: 0.8);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
   }
 
   &_next {
